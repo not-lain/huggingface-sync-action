@@ -7,8 +7,14 @@ def main(
     token: str,
     repo_type: str = "space",
     space_sdk: str = "gradio",
-    private: bool = False,
+    private: bool | None = False,
 ):
+    if isinstance(private, str):
+        if private.lower() == "none":
+            private = None
+        else:
+            private = private.lower() == "true"
+
     print("Syncing with Hugging Face Spaces...")
 
     if "/" not in repo_id:
