@@ -33,7 +33,7 @@ runs:
     - name: Checkout Action GitHub Repo
       uses: actions/checkout@v4
       with:
-        repository: 'nateraw/spaces-action'
+        repository: '${{ github.action_repository }}'
         path: cloned_hf_action_repo
 
     - name: Checkout Source GitHub Repo to Push
