@@ -40,7 +40,7 @@ runs:
     - name: Push to hub
       shell: bash
       run: |
-        pip install -r "https://raw.githubusercontent.com/${{ github.action_repository }}/${{ github.action_ref || 'main' }}/requirements.txt"
+        pip install -r "${{ github.action_path }}/requirements.txt"
         python "${{ github.action_path }}/sync_with_spaces.py" \
           --repo_id "${{ inputs.huggingface_repo_id }}" \
           --directory "cloned_github_repo/${{ inputs.subdirectory }}" \
